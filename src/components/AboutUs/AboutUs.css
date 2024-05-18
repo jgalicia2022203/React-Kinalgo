@@ -1,0 +1,39 @@
+.about-us {
+    background-color: #1a1a1a;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .about-title {
+    font-size: 48px;
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+  
+  .about-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .about-item {
+    width: 22%;
+  }
+  
+  .about-image {
+    width: 100%;
+    border-radius: 15px;
+  }
+  
+  .about-text {
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+  }
+  
