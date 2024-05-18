@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.hero-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif; /* Aplicar la fuente a toda la sección */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Ajustar opacidad */
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 92px; /* Ajustar tamaño de fuente */
+  margin-bottom: 40px;
+  color: #AB4D4D; /* Color de las letras */
+  text-align: left;
+  margin-left: 50px; /* Alinear a la izquierda */
+}
+
+.search-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajustar transparencia del fondo */
+  padding: 20px;
+  border-radius: 10px; /* Bordes más redondeados */
+  backdrop-filter: blur(10px); /* Aplicar desenfoque al fondo */
+  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra para difuminar */
+  max-width: 1000px;
+  margin: 40px auto; /* Centrar el contenedor del filtro y agregar más margen superior */
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #FFFFFF; /* Color de las etiquetas */
+  margin-bottom: 5px;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333; /* Color del texto de entrada */
+  width: 250px;
+}
+
+.search-button {
+  background-color: #AB4D4D; /* Color de fondo del botón */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.search-button:hover {
+  background-color: #8C311C; /* Color de fondo al pasar el cursor */
+}
+
+.search-button i {
+  margin-left: 10px;
+}
