@@ -1,0 +1,61 @@
+/* src/components/ourServices/ourServices.css */
+.our-services {
+  padding: 4rem 2rem;
+  background-color: #1a1a1a;
+  text-align: center;
+}
+
+.our-services-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.services-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 3rem;
+  max-width: 400px;
+  height: 300px;
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.service-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  color: #333333;
+  margin-bottom: 0.5rem;
+}
+
+.service-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #666666;
+}
+
+.ellipsis-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #333333;
+}
