@@ -1,9 +1,9 @@
 import React from 'react';
-import './heroSection1.css'; // Importar el archivo CSS desde la nueva ubicación
+import './heroSection1.css'; 
 
 const HeroSection = () => {
   return (
-    <section className="hero-section" style={{ backgroundImage: "url('../../public/fondoHero1.jpg')" }}>
+    <section className="hero-section" style={{ backgroundImage: "url('../../../public/fondoHero1.jpg')" }}>
       <div className="overlay"></div>
       <div className="content">
         <h1 className="hero-title">IT'S TIME TO ADVENTURES AND EXPERIENCES</h1>

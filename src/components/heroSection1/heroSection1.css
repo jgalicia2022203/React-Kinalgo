@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: 'Bebas Neue', sans-serif; /* Aplicar la fuente a toda la sección */
+  font-family: 'Bebas Neue', sans-serif; 
 }
 
 .overlay {
@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Ajustar opacidad */
+  background: rgba(0, 0, 0, 0.5); 
   z-index: 1;
 }
 
@@ -32,11 +32,11 @@
 }
 
 .hero-title {
-  font-size: 92px; /* Ajustar tamaño de fuente */
+  font-size: 92px;
   margin-bottom: 40px;
-  color: #AB4D4D; /* Color de las letras */
+  color: #AB4D4D;
   text-align: left;
-  margin-left: 50px; /* Alinear a la izquierda */
+  margin-left: 50px;
 }
 
 .search-container {
@@ -44,14 +44,14 @@
   gap: 20px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Ajustar transparencia del fondo */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 20px;
-  border-radius: 10px; /* Bordes más redondeados */
-  backdrop-filter: blur(10px); /* Aplicar desenfoque al fondo */
-  -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra para difuminar */
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
   max-width: 1000px;
-  margin: 40px auto; /* Centrar el contenedor del filtro y agregar más margen superior */
+  margin: 40px auto; 
 }
 
 .input-group {
@@ -62,7 +62,7 @@
 
 .input-group label {
   font-size: 14px;
-  color: #FFFFFF; /* Color de las etiquetas */
+  color: #FFFFFF; 
   margin-bottom: 5px;
 }
 
@@ -72,12 +72,12 @@
   border: none;
   outline: none;
   font-size: 16px;
-  color: #333; /* Color del texto de entrada */
+  color: #333; 
   width: 250px;
 }
 
 .search-button {
-  background-color: #AB4D4D; /* Color de fondo del botón */
+  background-color: #AB4D4D; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -90,7 +90,7 @@
 }
 
 .search-button:hover {
-  background-color: #8C311C; /* Color de fondo al pasar el cursor */
+  background-color: #8C311C; 
 }
 
 .search-button i {

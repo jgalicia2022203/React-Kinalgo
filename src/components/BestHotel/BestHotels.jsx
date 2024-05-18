@@ -5,25 +5,25 @@ const hotels = [
   {
     name: 'PASSALACQUA',
     location: 'SHORES OF LAKE COMO',
-    image: '../../public/bestHotel1.jpg',
-    city: 'COMO'
+    image: '../../../public/bestHotel1.jpg',
+    city: 'Argentina'
   },
   {
     name: 'HOTEL ROSEWOOD',
     location: 'HONG KONG',
-    image: '../../public/bestHotel2.jpg',
+    image: '../../../public/bestHotel2.jpg',
     city: 'HONG KONG'
   },
   {
     name: 'FOUR SEASONSK',
     location: 'A ORILLAS DEL CHAO PHRAYA',
-    image: '../../public/bestHotel3.jpg',
+    image: '../../../public/bestHotel3.jpg',
     city: 'BANGKOK'
   },
   {
     name: 'THE UPPER HOUSE',
     location: 'HONG KONG',
-    image: '../../public/bestHotel4.jpg',
+    image: '../../../public/bestHotel4.jpg',
     city: 'HONG KONG'
   }
 ];

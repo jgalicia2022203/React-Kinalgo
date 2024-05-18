@@ -1,11 +1,11 @@
 import React from 'react';
-import './header.css'; // Importar el archivo CSS desde la nueva ubicación
+import './header.css'; 
 
 const Header = () => {
   return (
     <header className="header">
       <div className="logo-container">
-        <img src="../../public/logo.png" alt="Logo" className="logo"/>
+        <img src="../../../public/logo.png" alt="Logo" className="logo"/>
       </div>
       <nav className="nav">
         <ul>
