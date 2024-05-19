@@ -1,0 +1,192 @@
+.booking-container {
+    margin-top: 10%;
+    margin-right: 100%;
+    justify-content: space-evenly;
+    display: flex;
+    padding: 20px;
+    background-color: #2b2b2b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    
+  }
+  
+  .booking-form {
+    flex: 1;
+    max-width: 600px; /* Aumentado de 500px a 600px */
+    margin-right: 20px;
+  }
+  
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  .form-section h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  
+  .input-group {
+    margin-bottom: 10px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 65%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-top: 2%;
+  }
+  
+  .booking-button {
+    width: 65%;
+    padding: 15px;
+    background-color: #d9922e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .booking-button:hover {
+    background-color: #b97e25;
+  }
+  
+  .price-details {
+    flex: 1;
+    max-width: 400px;
+    background-color: #3a3a3a;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .hotel-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .price-details h2 {
+    margin-bottom: 10px;
+    font-size: 35px;
+  }
+  
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .price-row.total {
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    font-size: 18px;
+  }
+  
+  .Pruebas{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+  }
+
+  .input-Phone{
+    width: 100%;
+    border-radius: 10px;
+    
+  }
+
+  .input-Phone {
+    margin-bottom: 10px;
+  }
+  
+  .input-Phone label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+
+  .input-card {
+    margin-bottom: 10px;
+  }
+  
+  .input-card label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-card input {
+    width: 65%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    margin-top: 2%;
+    color: black;
+  }
+
+  .input-number {
+    margin-bottom: 10px;
+  }
+  
+  .input-number label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-number input {
+    width: 30%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    margin-top: 2%;
+    color: black;
+  }
+/*Tarjeta de expiracion css*/
+
+  .input-expiration {
+    margin-bottom: 10px;
+    gap: 20px;
+    display: 20px;
+  }
+  
+  .input-expiration label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .input-expiration input {
+    display: flex;
+    width: 30%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    margin-top: 2%;
+    color: black;
+  }
+
+  .locura{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .ddsa{display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 20px;
+}
+
+.body{
+   justify-content: center;
+}
