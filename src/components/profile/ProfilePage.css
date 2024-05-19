@@ -1,0 +1,85 @@
+/* Estilos generales del formulario */
+.profile-form {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background: #262521; /* Fondo marrón oscuro */
+    color: #ffffff; /* Texto en blanco */
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+  }
+  .Formulario{
+    width: 500px;
+  }
+  
+  /* Título del formulario */
+  .profile-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 600px;
+    font-size: 40px
+  }
+  
+  /* Estilos para cada grupo de input */
+  .input-group {
+    margin-bottom: 15px;
+    max-width: 600px;
+    color: #262521;
+  }
+  
+  /* Etiquetas */
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color:#ffffff;
+  }
+  
+  /* Inputs */
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #000000;
+    justify-content: center;
+  }
+  
+  /* Botones */
+  .profile-form button {
+    width: calc(50% - 5px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background: #000000;
+  }
+  
+  /* Botón de actualizar perfil */
+  .profile-form button[type="submit"] {
+    background: #BF7C41; /* Marrón claro */
+    color: white;
+  }
+  
+  /* Botón de eliminar perfil */
+  .profile-form button[type="button"] {
+    background: #BF7C41; /* Rojo desaturado */
+    color: white;
+    float: right;
+  }
+  
+  /* Estilo adicional para mejorar la visualización en la página */
+  body {
+    background: #262521;
+    font-family: 'Bebas Neue';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  
