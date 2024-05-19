@@ -1,12 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SearchPage from './components/search/SearchPage';
+import ProfilePage from './components/profile/ProfilePage';
+
 
 const AppRoutes = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<SearchPage />} />
-      <Route path="/search" element={<SearchPage />} />
+      <Route path="/" element={<ProfilePage />} />
+      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   </Router>
 );
