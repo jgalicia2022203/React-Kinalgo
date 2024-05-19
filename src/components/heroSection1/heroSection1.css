@@ -1,3 +1,4 @@
+/* heroSection1.css */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
@@ -41,17 +42,17 @@
 
 .search-container {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
-  max-width: 1000px;
-  margin: 40px auto; 
+  max-width: 800px;
+  margin: 20px auto; 
 }
 
 .input-group {
@@ -61,25 +62,25 @@
 }
 
 .input-group label {
-  font-size: 14px;
+  font-size: 12px;
   color: #FFFFFF; 
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .input {
-  padding: 10px;
+  padding: 8px;
   border-radius: 5px;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 14px;
   color: #333; 
-  width: 250px;
+  width: 200px;
 }
 
 .search-button {
   background-color: #AB4D4D; 
   color: white;
-  padding: 10px 20px;
+  padding: 8px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -87,6 +88,7 @@
   align-items: center;
   justify-content: center;
   font-family: 'Bebas Neue', sans-serif;
+  flex-grow: 1;
 }
 
 .search-button:hover {
@@ -94,5 +96,5 @@
 }
 
 .search-button i {
-  margin-left: 10px;
+  margin-left: 8px;
 }
