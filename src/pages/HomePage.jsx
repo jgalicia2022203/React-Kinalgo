@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import Header from '../components/header/Header';
-import HeroSection from '../components/heroSection1/HeroSection1';
-import BestHotels from '../components/BestHotel/BestHotels';
-import OurServices from '../components/OurServices/OurServices';
-import Footer from '../components/Footer/Footer';
-import './homePage.css'; 
+import { useState } from "react";
+import BestHotels from "../components/BestHotel/BestHotels";
+import Footer from "../components/Footer/Footer";
+import OurServices from "../components/OurServices/OurServices";
+import Header from "../components/header/Header";
+import HeroSection from "../components/heroSection1/HeroSection1";
+import "./homePage.css";
 
 const mockHotels = [
   {
@@ -21,7 +21,7 @@ const mockHotels = [
     status: "Good",
     breakfast: true,
     provider: "Comfort inn hotels",
-    discount: null
+    discount: null,
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const mockHotels = [
     status: "Excellent",
     breakfast: true,
     provider: "Expedia",
-    discount: 35
+    discount: 35,
   },
   {
     id: 3,
@@ -53,18 +53,22 @@ const mockHotels = [
     status: "Perfect",
     breakfast: true,
     provider: "Comfort suites hotels",
-    discount: 50
-  }
+    discount: 50,
+  },
 ];
 
 const HomePage = () => {
   const [hotels, setHotels] = useState([]);
 
   const handleSearch = (searchParams) => {
-    const filteredHotels = mockHotels.filter(hotel => {
-      return hotel.location.toLowerCase().includes(searchParams.location.toLowerCase()) &&
-             hotel.checkIn === searchParams.checkIn &&
-             hotel.checkOut === searchParams.checkOut;
+    const filteredHotels = mockHotels.filter((hotel) => {
+      return (
+        hotel.location
+          .toLowerCase()
+          .includes(searchParams.location.toLowerCase()) &&
+        hotel.checkIn === searchParams.checkIn &&
+        hotel.checkOut === searchParams.checkOut
+      );
     });
     setHotels(filteredHotels);
   };
@@ -76,26 +80,36 @@ const HomePage = () => {
       <div className="search-results">
         {hotels.length > 0 && (
           <div className="results-container">
-            {hotels.map(hotel => (
+            {hotels.map((hotel) => (
               <div key={hotel.id} className="hotel-card">
-                <img src={hotel.imageUrl} alt={hotel.name} className="hotel-image"/>
+                <img
+                  src={hotel.imageUrl}
+                  alt={hotel.name}
+                  className="hotel-image"
+                />
                 <div className="hotel-card-content">
                   <div className="hotel-info">
                     <h2>{hotel.name}</h2>
                     <p>{hotel.location}</p>
-                    <p>Check-in: {hotel.checkIn} | Check-out: {hotel.checkOut}</p>
+                    <p>
+                      Check-in: {hotel.checkIn} | Check-out: {hotel.checkOut}
+                    </p>
                     <p>Rating: {hotel.rating} stars</p>
                     <p>{hotel.reviews} reviews</p>
-                    <p>Score: {hotel.score} - {hotel.status}</p>
-                    <p>{hotel.breakfast ? "Breakfast included" : "No breakfast"}</p>
+                    <p>
+                      Score: {hotel.score} - {hotel.status}
+                    </p>
+                    <p>
+                      {hotel.breakfast ? "Breakfast included" : "No breakfast"}
+                    </p>
                     <p>Provider: {hotel.provider}</p>
                   </div>
                   <div className="provider-box">
                     <span className="price">${hotel.price}</span>
-                    {hotel.discount && <span className="discount">{hotel.discount}% off</span>}
-                    <button className="view-deal-button">
-                      View Deal
-                    </button>
+                    {hotel.discount && (
+                      <span className="discount">{hotel.discount}% off</span>
+                    )}
+                    <button className="view-deal-button">View Deal</button>
                   </div>
                 </div>
               </div>

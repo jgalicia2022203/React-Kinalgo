@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Importa Link desde React Router
-import axios from 'axios';
-import './RegisterForm.css'; // Importa el archivo CSS para estilizar el formulario
+import axios from "axios";
+import { useState } from "react";
+import { Link } from "react-router-dom"; // Importa Link desde React Router
+import "./RegisterForm.css"; // Importa el archivo CSS para estilizar el formulario
 
 const RegisterForm = () => {
-  const [name, setName] = useState('');
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/register', {
+      const response = await axios.post("/register", {
         name,
         username,
         email,
-        password
+        password,
       });
       console.log(response.data); // Maneja la respuesta del servidor aquí
     } catch (error) {
-      console.error('Error al registrarse:', error);
+      console.error("Error al registrarse:", error);
     }
   };
 
@@ -71,9 +71,13 @@ const RegisterForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit" className="register-button">Register</button>
+        <button type="submit" className="register-button">
+          Register
+        </button>
         <hr className="separator" />
-        <p>Already have an account? <Link to="/login">Login in here</Link></p>
+        <p>
+          Already have an account? <Link to="/login">Login in here</Link>
+        </p>
       </form>
     </div>
   );
