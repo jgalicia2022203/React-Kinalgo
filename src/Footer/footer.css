@@ -6,13 +6,25 @@
 }
 
 .footer-top {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.footer-top h1 {
-  font-size: 36px;
-  margin-bottom: 10px;
+.footer-title {
+  font-size: 60px;
+  margin-bottom: 30px;
+  margin-left: 140px;
+  font-family: 'Arial', sans-serif;
+  max-width: 55%;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
 }
 
 .start-button {
@@ -22,6 +34,9 @@
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  margin-right: 140px;
 }
 
 .footer-line {
@@ -31,24 +46,93 @@
 
 .footer-bottom {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 10px 0;
 }
 
 .footer-section {
-  flex: 1;
   padding: 10px;
-  text-align: center;
+  text-align: left;
+  min-width: 200px;
+}
+
+.contact-details {
+  display: flex;
+  align-items: flex-start;
+  margin-left: 30px;
+}
+
+.contact-logo {
+  margin-right: 10px;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px; 
+  position: relative;
+}
+
+.contact-info h3::after {
+  content: '';
+  display: block;
+  width: 150px; 
+  height: 1px;
+  background-color: #fff;
+  margin-top: 5px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 5px; 
+  position: relative;
+}
+
+.footer-line-small {
+  border-top: 1px solid #fff;
+  margin: 5px 0;
+  width: 200px; 
+}
+
+.footer-section p,
+.footer-section ul {
+  font-size: 12px;
+  color: #ccc;
+  margin: 3px 0;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #fff;
 }
 
 .footer-logo {
-  width: 50px;
+  width: 60px;
   height: auto;
   margin-bottom: 10px;
 }
 
 .footer-icons {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 10px;
   margin-top: 10px;
 }
@@ -63,9 +147,34 @@
   border: 1px solid #fff;
   padding: 10px;
   border-radius: 10px;
+  max-width: 250px;
+}
+
+.footer-specialized h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-specialized p {
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .footer-specialized a {
+  font-size: 12px;
   color: #fff;
   text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+
+
+.footer-bottom {
+  justify-content: space-between; 
+}
+
+.footer-section.menu {
+  text-align: center;
+  flex: 1 1 0; 
+  margin: 0 20px; 
 }
