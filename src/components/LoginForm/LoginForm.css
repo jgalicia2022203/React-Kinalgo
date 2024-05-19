@@ -49,6 +49,7 @@
   .submit-button {
     background-color: #BF7C41;
     margin-bottom: 10px;
+    
   }
   
   .register-button {
@@ -91,3 +92,22 @@
   .logo-container.right {
     margin-right: 10px;
   }
+
+  .register-button {
+    display: block; /* Hace que el botón ocupe todo el ancho disponible */
+    width: 100%; /* Establece el ancho al 100% */
+    padding: 1px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #BF7C41;
+    color: #fff;
+    margin-bottom: 10px;
+    text-align: center; 
+   
+  }
+  
+  .register-button:last-of-type {
+    margin-bottom: 0;
+  }
+  

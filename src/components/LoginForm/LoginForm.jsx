@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Importa Link desde React Router
 import axios from 'axios';
 import './LoginForm.css';
 
@@ -21,10 +22,9 @@ const LoginForm = () => {
 
   return (
     <div className="login-form-container">
-    <div className="logo-container left">
+            <div className="logo-container left">
   <img src="../../../public/logotipo.png" alt="Logo" className="logo" />
 </div>
-
       <h2>Login or Create an Account</h2>
       <form className="login-form" onSubmit={handleSubmit}>
         <div className="form-group">
@@ -49,7 +49,7 @@ const LoginForm = () => {
         </div>
         <button type="submit" className="submit-button">Next</button>
         <hr className="separator" />
-        <button type="button" className="register-button">Register</button>
+        <Link to="/register" className="register-button">Register</Link> {/* Utiliza Link para redirigir a la página de registro */}
         <p>By creating an account, you agree to our Privacy policy and Terms of use.</p>
       </form>
     </div>
