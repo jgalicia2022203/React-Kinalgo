@@ -77,9 +77,9 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="w-full bg-stone-800 text-white p-8">
+    <div className=" bg-stone-800 text-white p-8 w-screen h-screen flex justify-center items-center flex-col">
       <h2 className="text-2xl font-bold mb-4">Your Account</h2>
-      <div className="max-w-md w-full p-8 rounded-md bg-gray-700">
+      <div className="max-w-md w-full p-8 rounded-md hover:border-orange-400">
         <div className="mb-4">
           <label
             htmlFor="name"
@@ -155,18 +155,22 @@ const ProfilePage = () => {
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
           />
         </div>
+
+        <div className="flex place-content-around">
         <button
           onClick={handleUpdateProfile}
-          className="w-full bg-orange-400 text-white py-2 rounded-md font-bold"
+          className="w-full bg-orange-400 text-white py-2 rounded-md font-bold w-40 h-120"
         >
           Update Profile
         </button>
         <button
           onClick={handleDeactivateAccount}
-          className="w-full bg-red-500 text-white py-2 rounded-md font-bold mt-4"
+          className="w-full bg-red-500 text-white py-2 rounded-md font-bold  w-40 h-120"
         >
           Deactivate Account
         </button>
+        </div>
+
       </div>
     </div>
   );
