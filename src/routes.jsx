@@ -21,7 +21,6 @@ const AppRoutes = () => {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/payment" element={<PaymentPage />} />
       <Route path="/search" element={<SearchPage />} />
-      {/* Agrega más rutas según sea necesario */}
     </Routes>
   );
 };

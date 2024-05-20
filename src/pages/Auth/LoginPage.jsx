@@ -1,34 +1,29 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import axios from "../../services/axios";
+import { useAuth } from "../../contexts/AuthContext";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post("/auth/login", { email, password });
-      localStorage.setItem("token", response.data.token);
+    const success = await login(email, password);
+    if (success) {
       toast.success("Login successful!");
       navigate("/");
-    } catch (err) {
-      toast.error(err.response.data.msg || "Invalid email or password");
+    } else {
+      toast.error("Invalid email or password");
     }
   };
 
   return (
-    <div className="h-full flex flex-col items-center bg-stone-800">
+    <div className="h-full w-full flex flex-col items-center bg-stone-800">
       <div>
-        <img
-          src="../../../public/logotipo.png"
-          alt="logo"
-          height={250}
-          width={250}
-        />
+        <img src="/logotipo.png" alt="logo" height={250} width={250} />
       </div>
       <div className="max-w-md w-full p-8 rounded-md">
         <h2 className="text-2xl text-white font-bold mb-6 text-left">

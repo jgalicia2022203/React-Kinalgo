@@ -22,7 +22,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-stone-800">
+    <div className="w-full h-full flex flex-col items-center bg-stone-800">
       <div>
         <img
           src="../../../public/logotipo.png"

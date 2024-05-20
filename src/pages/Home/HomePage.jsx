@@ -6,7 +6,7 @@ import OurServices from "../../components/HomePage/OurServices";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="w-full">
       <Header />
       <HeroSection />
       <BestHotels />

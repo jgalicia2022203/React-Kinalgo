@@ -3,13 +3,12 @@ import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import axios from "../../services/axios";
 
-const HotelDetailsPage = () => {
+const HotelPage = () => {
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
-  const [roomType, setRoomType] = useState("");
-  const [guests, setGuests] = useState(1);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [roomId, setRoomId] = useState("");
 
   useEffect(() => {
     const fetchHotelDetails = async () => {
@@ -26,60 +25,58 @@ const HotelDetailsPage = () => {
   const handleBooking = async () => {
     try {
       await axios.post(`/hotels/${id}/book`, {
-        checkIn,
-        checkOut,
-        roomType,
-        guests,
+        startDate,
+        endDate,
+        roomId,
       });
       toast.success("Booking successful!");
     } catch (err) {
-      toast.error("Booking failed!");
+      toast.error(err.response.data.msg || "Booking failed!");
     }
   };
 
   if (!hotel) return <div>Loading...</div>;
 
   return (
-    <div className="min-h-screen bg-stone-800 text-white">
+    <div className="w-full bg-stone-800 text-white">
       <div className="p-8">
         <h2 className="text-3xl font-bold mb-4">{hotel.name}</h2>
-        <p>{hotel.location}</p>
+        <p>{hotel.address}</p>
         <p>{hotel.description}</p>
         <div className="mt-4">
           <label className="block text-sm font-medium">Check In</label>
           <input
             type="date"
-            value={checkIn}
-            onChange={(e) => setCheckIn(e.target.value)}
-            className="mt-1 p-2 block w-full border rounded-md"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className="mt-1 p-2 block w-full border rounded-md text-black"
           />
         </div>
         <div className="mt-4">
           <label className="block text-sm font-medium">Check Out</label>
           <input
             type="date"
-            value={checkOut}
-            onChange={(e) => setCheckOut(e.target.value)}
-            className="mt-1 p-2 block w-full border rounded-md"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            className="mt-1 p-2 block w-full border rounded-md text-black"
           />
         </div>
         <div className="mt-4">
-          <label className="block text-sm font-medium">Room Type</label>
-          <input
-            type="text"
-            value={roomType}
-            onChange={(e) => setRoomType(e.target.value)}
-            className="mt-1 p-2 block w-full border rounded-md"
-          />
-        </div>
-        <div className="mt-4">
-          <label className="block text-sm font-medium">Guests</label>
-          <input
-            type="number"
-            value={guests}
-            onChange={(e) => setGuests(e.target.value)}
-            className="mt-1 p-2 block w-full border rounded-md"
-          />
+          <label className="block text-sm font-medium">Room</label>
+          <select
+            value={roomId}
+            onChange={(e) => setRoomId(e.target.value)}
+            className="mt-1 p-2 block w-full border rounded-md text-black"
+          >
+            <option value="" className="text-black">
+              Select a room
+            </option>
+            {hotel.rooms.map((room) => (
+              <option key={room._id} value={room._id}>
+                {room.room_number} - {room.type}
+              </option>
+            ))}
+          </select>
         </div>
         <button
           onClick={handleBooking}
@@ -92,4 +89,4 @@ const HotelDetailsPage = () => {
   );
 };
 
-export default HotelDetailsPage;
+export default HotelPage;

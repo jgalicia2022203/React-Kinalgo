@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line react/prop-types, no-unused-vars
 const HeroSection = ({ onSearch }) => {
   const [location, setLocation] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = () => {
-    onSearch({ location, checkIn, checkOut });
+    navigate(
+      `/search?address=${location}&startDate=${checkIn}&endDate=${checkOut}`
+    );
   };
 
   return (
