@@ -1,21 +1,12 @@
-// App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage'; // Importa el componente LoginPage
-import RegisterPage from './pages/RegisterPage'; // Importa el componente RegisterPage
-
-const App = () => {
+import { Toaster } from "react-hot-toast";
+import AppRoutes from "./routes";
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} /> {/* Agrega la ruta para la página de registro */}
-        {/* Otras rutas pueden ser añadidas aquí */}
-      </Routes>
-    </Router>
+    <div className="App w-full h-full">
+      <AppRoutes />
+      <Toaster position="bottom-left" reverseOrder={false} />
+    </div>
   );
-};
+}
 
 export default App;
