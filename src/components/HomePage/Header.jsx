@@ -5,7 +5,7 @@ const Header = () => {
   const { user, logout } = useAuth();
 
   return (
-    <header className="bg-yellow-950 text-white p-4 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 bg-yellow-950 text-white p-4 flex items-center justify-between z-50">
       <div className="ml-20">
         <img src="../../../public/logotipo.png" alt="Logo" className="h-20" />
       </div>
