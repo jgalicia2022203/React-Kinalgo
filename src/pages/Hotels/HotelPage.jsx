@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 import axios from "../../services/axios";
 
 const HotelPage = () => {
   const { id } = useParams();
+  const { user } = useAuth();
   const [hotel, setHotel] = useState(null);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [roomId, setRoomId] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchHotelDetails = async () => {
@@ -22,17 +25,33 @@ const HotelPage = () => {
     fetchHotelDetails();
   }, [id]);
 
-  const handleBooking = async () => {
-    try {
-      await axios.post(`/hotels/${id}/book`, {
-        startDate,
-        endDate,
-        roomId,
-      });
-      toast.success("Booking successful!");
-    } catch (err) {
-      toast.error(err.response.data.msg || "Booking failed!");
+  const calculateTotal = (startDate, endDate) => {
+    const roomRate = 108; // Fixed room rate per night
+    const taxRate = 0.22; // Fixed tax rate
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const nights = (end - start) / (1000 * 60 * 60 * 24);
+    const subtotal = nights * roomRate;
+    const taxes = subtotal * taxRate;
+    return subtotal + taxes;
+  };
+
+  const handleBooking = () => {
+    if (!user) {
+      toast.error("You need to log in to proceed with the booking.");
+      navigate("/login");
+      return;
     }
+    const total = calculateTotal(startDate, endDate);
+    const bookingDetails = {
+      user: user._id,
+      hotelId: id,
+      startDate,
+      endDate,
+      roomId,
+      total,
+    };
+    navigate("/payment", { state: { bookingDetails } });
   };
 
   if (!hotel) return <div>Loading...</div>;
@@ -82,7 +101,7 @@ const HotelPage = () => {
           onClick={handleBooking}
           className="bg-orange-400 text-white py-2 px-4 rounded-md mt-4"
         >
-          Book Now
+          Proceed to Payment
         </button>
       </div>
     </div>
