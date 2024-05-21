@@ -1,3 +1,5 @@
+/* Header.jsx */
+
 import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
@@ -17,42 +19,73 @@ const Header = () => {
       </div>
       <nav className="flex-grow flex justify-center">
         <ul className="flex gap-8">
-          <li>
-            <a
-              href="#home"
-              onClick={(e) => handleScroll(e, "home")}
-              className="text-white no-underline hover:text-gray-300"
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="#best-hotels"
-              onClick={(e) => handleScroll(e, "best-hotels")}
-              className="text-white no-underline hover:text-gray-300"
-            >
-              Best Hotels
-            </a>
-          </li>
-          <li>
-            <a
-              href="#our-services"
-              onClick={(e) => handleScroll(e, "our-services")}
-              className="text-white no-underline hover:text-gray-300"
-            >
-              Our Services
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact-us"
-              onClick={(e) => handleScroll(e, "contact-us")}
-              className="text-white no-underline hover:text-gray-300"
-            >
-              Contact Us
-            </a>
-          </li>
+          {user && user.role === "ADMIN" ? (
+            <>
+              <li>
+                <Link
+                  to="/admin/dashboard"
+                  className="text-white no-underline hover:text-gray-300"
+                >
+                  Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/admin/users"
+                  className="text-white no-underline hover:text-gray-300"
+                >
+                  Users
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/admin/reports"
+                  className="text-white no-underline hover:text-gray-300"
+                >
+                  Reports
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <a
+                  href="#home"
+                  onClick={(e) => handleScroll(e, "home")}
+                  className="text-white no-underline hover:text-gray-300"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#best-hotels"
+                  onClick={(e) => handleScroll(e, "best-hotels")}
+                  className="text-white no-underline hover:text-gray-300"
+                >
+                  Best Hotels
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#our-services"
+                  onClick={(e) => handleScroll(e, "our-services")}
+                  className="text-white no-underline hover:text-gray-300"
+                >
+                  Our Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact-us"
+                  onClick={(e) => handleScroll(e, "contact-us")}
+                  className="text-white no-underline hover:text-gray-300"
+                >
+                  Contact Us
+                </a>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
       <div className="mr-6">

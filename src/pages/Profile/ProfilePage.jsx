@@ -5,17 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import axios from "../../services/axios";
 
-// Set app element for accessibility
 Modal.setAppElement("#root");
 
 const ProfilePage = () => {
   const { user, logout, loading, setUser } = useAuth();
-  const [newName, setNewName] = useState("");
-  const [newUsername, setNewUsername] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [newPhoneNumber, setNewPhoneNumber] = useState("");
-  const [currentPassword, setCurrentPassword] = useState("");
+  const [formData, setFormData] = useState({
+    newName: "",
+    newUsername: "",
+    newEmail: "",
+    newPassword: "",
+    newPhoneNumber: "",
+    currentPassword: "",
+  });
   const [showUpdateModal, setShowUpdateModal] = useState(false);
   const [showDeactivateModal, setShowDeactivateModal] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -25,15 +26,27 @@ const ProfilePage = () => {
     if (!loading && !user) {
       navigate("/login");
     } else if (user) {
-      setNewName(user.name || "");
-      setNewEmail(user.email || "");
-      setNewUsername(user.username || "");
-      setNewPhoneNumber(user.phoneNumber || "");
+      setFormData({
+        newName: user.name || "",
+        newEmail: user.email || "",
+        newUsername: user.username || "",
+        newPhoneNumber: user.phoneNumber || "",
+        newPassword: "",
+        currentPassword: "",
+      });
     }
   }, [user, loading, navigate]);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const handleUpdateProfile = async () => {
-    if (newPassword && !showPasswordModal) {
+    if (formData.newPassword && !showPasswordModal) {
       setShowPasswordModal(true);
       return;
     }
@@ -41,14 +54,14 @@ const ProfilePage = () => {
     try {
       const token = localStorage.getItem("token");
       const updateData = {
-        name: newName,
-        username: newUsername,
-        email: newEmail,
-        phoneNumber: newPhoneNumber,
+        name: formData.newName,
+        username: formData.newUsername,
+        email: formData.newEmail,
+        phoneNumber: formData.newPhoneNumber,
       };
 
-      if (newPassword) {
-        updateData.password = newPassword;
+      if (formData.newPassword) {
+        updateData.password = formData.newPassword;
       }
 
       const response = await axios.put(
@@ -64,9 +77,11 @@ const ProfilePage = () => {
       toast.success("Profile updated successfully!");
       setShowUpdateModal(false);
       setShowPasswordModal(false);
-      setNewPassword("");
-      setCurrentPassword("");
-      // Update the user state with new data
+      setFormData((prevData) => ({
+        ...prevData,
+        newPassword: "",
+        currentPassword: "",
+      }));
       setUser(response.data.user);
     } catch (err) {
       toast.error(err.response.data.msg || "Failed to update profile");
@@ -98,7 +113,7 @@ const ProfilePage = () => {
       const token = localStorage.getItem("token");
       await axios.post(
         `/auth/verify-password`,
-        { password: currentPassword },
+        { password: formData.currentPassword },
         {
           headers: {
             "x-token": token,
@@ -136,8 +151,9 @@ const ProfilePage = () => {
           <input
             type="text"
             id="name"
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
+            name="newName"
+            value={formData.newName}
+            onChange={handleInputChange}
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
           />
         </div>
@@ -151,8 +167,9 @@ const ProfilePage = () => {
           <input
             type="text"
             id="username"
-            value={newUsername}
-            onChange={(e) => setNewUsername(e.target.value)}
+            name="newUsername"
+            value={formData.newUsername}
+            onChange={handleInputChange}
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
           />
         </div>
@@ -166,8 +183,9 @@ const ProfilePage = () => {
           <input
             type="email"
             id="email"
-            value={newEmail}
-            onChange={(e) => setNewEmail(e.target.value)}
+            name="newEmail"
+            value={formData.newEmail}
+            onChange={handleInputChange}
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
           />
         </div>
@@ -181,8 +199,9 @@ const ProfilePage = () => {
           <input
             type="password"
             id="password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
+            name="newPassword"
+            value={formData.newPassword}
+            onChange={handleInputChange}
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
             placeholder="••••••••"
           />
@@ -197,8 +216,9 @@ const ProfilePage = () => {
           <input
             type="text"
             id="phoneNumber"
-            value={newPhoneNumber}
-            onChange={(e) => setNewPhoneNumber(e.target.value)}
+            name="newPhoneNumber"
+            value={formData.newPhoneNumber}
+            onChange={handleInputChange}
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
           />
         </div>
@@ -282,8 +302,9 @@ const ProfilePage = () => {
           <p>Please enter your current password to proceed with the update:</p>
           <input
             type="password"
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
+            value={formData.currentPassword}
+            onChange={handleInputChange}
+            name="currentPassword"
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md text-black"
             placeholder="Current Password"
           />

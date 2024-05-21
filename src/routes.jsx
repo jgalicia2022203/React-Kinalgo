@@ -1,3 +1,5 @@
+/* routes.jsx */
+
 import { Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
@@ -8,6 +10,11 @@ import HotelPage from "./pages/Hotels/HotelPage";
 import PaymentPage from "./pages/Payment/PaymentPage";
 import ProfilePage from "./pages/Profile/ProfilePage";
 import SearchPage from "./pages/Search/SearchPage";
+
+// Admin Pages
+import AdminDashboardPage from "./pages/Admin/DashboardPage";
+import AdminReportsPage from "./pages/Admin/ReportsPage";
+import AdminUsersPage from "./pages/Admin/UsersPage";
 
 const AppRoutes = () => {
   return (
@@ -21,6 +28,11 @@ const AppRoutes = () => {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/payment" element={<PaymentPage />} />
       <Route path="/search" element={<SearchPage />} />
+
+      {/* Admin Routes */}
+      <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+      <Route path="/admin/users" element={<AdminUsersPage />} />
+      <Route path="/admin/reports" element={<AdminReportsPage />} />
     </Routes>
   );
 };

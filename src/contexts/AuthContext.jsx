@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../services/axios";
@@ -25,7 +24,7 @@ export const AuthProvider = ({ children }) => {
               "x-token": token,
             },
           });
-          setUser(response.data.user); // Adjusted to match the expected data structure
+          setUser(response.data.user);
         } catch (error) {
           console.error("Failed to fetch user", error);
           localStorage.removeItem("token");
