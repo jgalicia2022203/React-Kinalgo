@@ -4,6 +4,12 @@ import { useAuth } from "../../contexts/AuthContext";
 const Header = () => {
   const { user, logout } = useAuth();
 
+  const handleScroll = (e, sectionId) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-yellow-950 text-white p-4 flex items-center justify-between z-50">
       <div className="ml-20">
@@ -12,44 +18,40 @@ const Header = () => {
       <nav className="flex-grow flex justify-center">
         <ul className="flex gap-8">
           <li>
-            <Link
-              to="/"
+            <a
+              href="#home"
+              onClick={(e) => handleScroll(e, "home")}
               className="text-white no-underline hover:text-gray-300"
             >
               Home
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              to="/best-hotels"
+            <a
+              href="#best-hotels"
+              onClick={(e) => handleScroll(e, "best-hotels")}
               className="text-white no-underline hover:text-gray-300"
             >
               Best Hotels
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              to="/our-services"
+            <a
+              href="#our-services"
+              onClick={(e) => handleScroll(e, "our-services")}
               className="text-white no-underline hover:text-gray-300"
             >
               Our Services
-            </Link>
+            </a>
           </li>
           <li>
-            <Link
-              to="/about-us"
-              className="text-white no-underline hover:text-gray-300"
-            >
-              About Us
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact-us"
+            <a
+              href="#contact-us"
+              onClick={(e) => handleScroll(e, "contact-us")}
               className="text-white no-underline hover:text-gray-300"
             >
               Contact Us
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

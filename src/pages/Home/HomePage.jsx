@@ -8,11 +8,20 @@ const HomePage = () => {
   return (
     <div className="w-full">
       <Header />
-      <HeroSection />
-      <BestHotels />
-      <OurServices />
-      <Footer />
+      <section id="home">
+        <HeroSection />
+      </section>
+      <section id="best-hotels">
+        <BestHotels />
+      </section>
+      <section id="our-services">
+        <OurServices />
+      </section>
+      <section id="contact-us">
+        <Footer />
+      </section>
     </div>
   );
 };
+
 export default HomePage;
