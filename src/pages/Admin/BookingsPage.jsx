@@ -1,36 +1,25 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useAuth } from "../../contexts/AuthContext";
 import axios from "../../services/axios";
 
-const BookingHistoryPage = () => {
-  const { user } = useAuth();
+const AdminBookingsPage = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const response = await axios.get(`/bookings/user/${user._id}`, {
-          headers: {
-            "x-token": token,
-          },
-        });
+        const response = await axios.get("/bookings");
         setBookings(response.data.bookings);
       } catch (err) {
-        toast.error("Failed to fetch booking history");
+        toast.error("Failed to fetch bookings");
       }
     };
-    if (user) {
-      fetchBookings();
-    }
-  }, [user]);
-
-  if (!user) return <div>Loading...</div>;
+    fetchBookings();
+  }, []);
 
   return (
-    <div className="p-8 bg-stone-800 text-white">
-      <h1 className="text-3xl font-bold mb-4">Booking History</h1>
+    <div className="p-8 bg-stone-800 text-white w-full">
+      <h1 className="text-3xl font-bold mb-4">Manage Bookings</h1>
       {bookings.length === 0 ? (
         <p>No bookings found.</p>
       ) : (
@@ -44,6 +33,9 @@ const BookingHistoryPage = () => {
                 {new Date(booking.endDate).toLocaleDateString()}
               </p>
               <p>Total: ${booking.total}</p>
+              <button className="bg-red-500 text-white py-2 px-4 rounded-md mt-2">
+                Delete
+              </button>
             </li>
           ))}
         </ul>
@@ -52,4 +44,4 @@ const BookingHistoryPage = () => {
   );
 };
 
-export default BookingHistoryPage;
+export default AdminBookingsPage;
