@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import { faEdit, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link, Route, Routes, useParams } from "react-router-dom";
+import Rooms from "../../components/Rooms/Rooms";
 import axios from "../../services/axios";
 
 const AdminHotelPage = () => {
@@ -65,73 +64,6 @@ const AdminHotelPage = () => {
           <Route path="services" element={<Services hotelId={hotel._id} />} />
         </Routes>
       </div>
-    </div>
-  );
-};
-
-const Rooms = ({ hotelId }) => {
-  const [rooms, setRooms] = useState([]);
-
-  useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const response = await axios.get(`/hotels/${hotelId}/rooms`, {
-          headers: {
-            "x-token": localStorage.getItem("token"),
-          },
-        });
-        setRooms(response.data);
-      } catch (error) {
-        console.error("Failed to fetch rooms", error);
-      }
-    };
-
-    fetchRooms();
-  }, [hotelId]);
-
-  return (
-    <div>
-      <h3 className="text-xl font-bold mb-4">Rooms</h3>
-      <table className="w-full bg-gray-900 rounded-lg overflow-hidden">
-        <thead>
-          <tr>
-            <th className="p-3 text-left">Room #</th>
-            <th className="p-3 text-left">Type</th>
-            <th className="p-3 text-left">Price</th>
-            <th className="p-3 text-left">Availability</th>
-            <th className="p-3 text-left">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rooms.length > 0 ? (
-            rooms.map((room) => (
-              <tr key={room._id} className="border-b border-gray-700">
-                <td className="p-3">{room.room_number}</td>
-                <td className="p-3">{room.type}</td>
-                <td className="p-3">${room.price_per_night}/night</td>
-                <td className="p-3">{room.status}</td>
-                <td className="p-3 flex gap-2">
-                  <button className="text-blue-500">
-                    <FontAwesomeIcon icon={faEdit} />
-                  </button>
-                  <button className="text-red-500">
-                    <FontAwesomeIcon icon={faTrash} />
-                  </button>
-                  <button className="text-green-500">
-                    <FontAwesomeIcon icon={faEye} />
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5" className="p-3 text-center">
-                No rooms found
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
     </div>
   );
 };

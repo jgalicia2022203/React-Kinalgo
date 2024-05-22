@@ -2,7 +2,6 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
-
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -68,7 +67,16 @@ const LoginPage = () => {
           >
             Login
           </button>
+          <hr className="my-5" />
+
+          <a
+            className="flex align-center justify-center w-full bg-orange-400 font-bold text-white py-2 rounded-md"
+            href="/register"
+          >
+            Register
+          </a>
         </form>
+
         <p className="mt-2 text-left text-white">
           By creating an account you agree to our Privacy policy and Terms of
           use.
