@@ -1,10 +1,7 @@
-// routes.jsx
 import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
-import AdminBookingsPage from "./pages/Admin/BookingsPage";
 import AdminDashboardPage from "./pages/Admin/DashboardPage";
-import ReportsPage from "./pages/Admin/ReportsPage";
-import UsersPage from "./pages/Admin/UsersPage";
+import AdminHotelPage from "./pages/Admin/HotelPage";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import BookingHistoryPage from "./pages/BookingHistory/BookingHistoryPage";
@@ -32,9 +29,7 @@ const AppRoutes = () => {
       {user && user.role === "ADMIN" && (
         <>
           <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
-          <Route path="/admin/users" element={<UsersPage />} />
-          <Route path="/admin/reports" element={<ReportsPage />} />
-          <Route path="/admin/bookings" element={<AdminBookingsPage />} />
+          <Route path="/admin/hotel/:id/*" element={<AdminHotelPage />} />
         </>
       )}
     </Routes>

@@ -1,6 +1,7 @@
 import { faEdit, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AddHotelDialog from "../../components/Hotels/AddHotelDialog";
 import ConfirmDeleteDialog from "../../components/Hotels/ConfirmDeleteDialog";
 import EditHotelDialog from "../../components/Hotels/EditHotelDialog";
@@ -12,6 +13,7 @@ const AdminDashboardPage = () => {
   const [showAddDialog, setShowAddDialog] = useState(false);
   const [showEditDialog, setShowEditDialog] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const navigate = useNavigate();
 
   const fetchHotels = async () => {
     try {
@@ -42,6 +44,10 @@ const AdminDashboardPage = () => {
   const handleDeleteHotel = (hotel) => {
     setSelectedHotel(hotel);
     setShowDeleteDialog(true);
+  };
+
+  const handleViewHotel = (hotelId) => {
+    navigate(`/admin/hotel/${hotelId}`);
   };
 
   return (
@@ -82,7 +88,10 @@ const AdminDashboardPage = () => {
                   >
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
-                  <button className="text-green-500">
+                  <button
+                    onClick={() => handleViewHotel(hotel._id)}
+                    className="text-green-500"
+                  >
                     <FontAwesomeIcon icon={faEye} />
                   </button>
                 </td>
@@ -100,22 +109,28 @@ const AdminDashboardPage = () => {
 
       {showAddDialog && (
         <AddHotelDialog
-          onClose={() => setShowAddDialog(false)}
-          onRefresh={fetchHotels}
+          onClose={() => {
+            setShowAddDialog(false);
+            fetchHotels(); // Refrescar la lista de hoteles después de agregar
+          }}
         />
       )}
       {showEditDialog && (
         <EditHotelDialog
           hotel={selectedHotel}
-          onClose={() => setShowEditDialog(false)}
-          onRefresh={fetchHotels}
+          onClose={() => {
+            setShowEditDialog(false);
+            fetchHotels(); // Refrescar la lista de hoteles después de editar
+          }}
         />
       )}
       {showDeleteDialog && (
         <ConfirmDeleteDialog
           hotel={selectedHotel}
-          onClose={() => setShowDeleteDialog(false)}
-          onRefresh={fetchHotels}
+          onClose={() => {
+            setShowDeleteDialog(false);
+            fetchHotels(); // Refrescar la lista de hoteles después de eliminar
+          }}
         />
       )}
     </div>
