@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { useAuth } from "./contexts/AuthContext";
 import AdminDashboardPage from "./pages/Admin/DashboardPage";
 import AdminHotelPage from "./pages/Admin/HotelPage";
+import AdminReportsPage from "./pages/Admin/ReportsPage";
+import AdminUsersPage from "./pages/Admin/UsersPage";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import BookingHistoryPage from "./pages/BookingHistory/BookingHistoryPage";
@@ -30,6 +32,8 @@ const AppRoutes = () => {
         <>
           <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
           <Route path="/admin/hotel/:id/*" element={<AdminHotelPage />} />
+          <Route path="/admin/users" element={<AdminUsersPage />} />
+          <Route path="/admin/reports" element={<AdminReportsPage />} />
         </>
       )}
     </Routes>
