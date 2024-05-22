@@ -18,7 +18,7 @@ const AdminBookingsPage = () => {
   }, []);
 
   return (
-    <div className="p-8 bg-stone-800 text-white w-full">
+    <div className="p-8 bg-stone-800 text-white w-full h-max">
       <h1 className="text-3xl font-bold mb-4">Manage Bookings</h1>
       {bookings.length === 0 ? (
         <p>No bookings found.</p>
